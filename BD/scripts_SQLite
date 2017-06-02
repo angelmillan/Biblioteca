@@ -1,5 +1,4 @@
 /* Script proyecto de recuperación.*/
-<<<<<<< HEAD
 /* Angel Millan Miralles 1ºDAM */
 
 PRAGMA foreign_keys = ON;
@@ -11,17 +10,17 @@ DROP TABLE IF EXISTS prestamos;
 
 CREATE TABLE libros
 (
-ISBN 			INTEGER PRIMARY KEY,
+ISBN 			TEXT PRIMARY KEY,
 TITULO			TEXT NOT NULL ,
 AUTOR			TEXT NOT NULL,
 EDITORIAL 		TEXT NOT NULL,
-EDICION			INTEGER
+EDICION			TEXT
 );
 
  CREATE TABLE ejemplares
 (
 ID 				INTEGER ROWID,
-ISBN_ejemplares INTEGER,
+ISBN_ejemplares TEXT,
 
 PRIMARY KEY (ID, ISBN_ejemplares),		
 FOREIGN KEY (ISBN_ejemplares) REFERENCES libros(ISBN)
@@ -30,7 +29,7 @@ FOREIGN KEY (ISBN_ejemplares) REFERENCES libros(ISBN)
 
 CREATE TABLE usuarios
 (
-DNI             INTEGER PRIMARY KEY,
+DNI             TEXT PRIMARY KEY,
 NOMBRE          TEXT NOT NULL,
 APELLIDOS       TEXT NOT NULL,
 DIRECCION		TEXT

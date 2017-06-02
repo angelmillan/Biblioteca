@@ -1,0 +1,51 @@
+/* Script proyecto de recuperación.*/
+/* Angel Millan Miralles 1ºDAM */
+
+PRAGMA foreign_keys = ON;
+
+DROP TABLE IF EXISTS libros;
+DROP TABLE IF EXISTS ejemplares;
+DROP TABLE IF EXISTS usuarios;
+DROP TABLE IF EXISTS prestamos;
+
+CREATE TABLE libros
+(
+ISBN 			INTEGER PRIMARY KEY,
+TITULO			TEXT NOT NULL,
+AUTOR			TEXT NOT NULL,
+EDITORIAL 		TEXT NOT NULL,
+EDICION			INTEGER
+);
+
+ CREATE TABLE ejemplares
+(
+ID 				INTEGER ROWID,
+ISBN_ejemplares INTEGER,
+
+PRIMARY KEY (ID, ISBN_ejemplares),		
+FOREIGN KEY (ISBN_ejemplares) REFERENCES libros(ISBN)
+
+);
+
+CREATE TABLE usuarios
+(
+DNI             INTEGER PRIMARY KEY,
+NOMBRE          TEXT NOT NULL,
+APELLIDOS       TEXT NOT NULL,
+DIRECCION		TEXT
+);
+
+CREATE TABLE prestamos
+(
+FECHA           TEXT DEFAULT CURRENT_TIMESTAMP,
+DNI             TEXT,
+CLAVE_EJEMPLAR  TEXT,
+
+PRIMARY KEY (DNI, CLAVE_EJEMPLAR, FECHA),
+FOREIGN KEY (DNI)REFERENCES usuarios(DNI),
+FOREIGN KEY (CLAVE_EJEMPLAR) REFERENCES ejemplares(ID)
+
+);
+
+
+

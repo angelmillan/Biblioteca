@@ -17,28 +17,33 @@ EDITORIAL 		TEXT NOT NULL,
 EDICION			TEXT
 );
 
- CREATE TABLE ejemplares
-(
-ID 				INTEGER ROWID,
-ISBN_ejemplares TEXT,
 
-PRIMARY KEY (ID, ISBN_ejemplares),		
-FOREIGN KEY (ISBN_ejemplares) REFERENCES libros(ISBN)
+CREATE TABLE ejemplares
+(
+
+ISBN_ejemplar 	TEXT NOT NULL ,
+NUMERO_ejemplar INTEGER NOT NULL CHECK (NUMERO_Ejemplar > 0),
+UNIQUE (ISBN_Ejemplar,NUMERO_ejemplar),
+
+PRIMARY KEY (ISBN_ejemplar, NUMERO_ejemplar),		
+FOREIGN KEY (ISBN_ejemplar) REFERENCES libros(ISBN)
 
 );
+
 
 CREATE TABLE usuarios
 (
 DNI             TEXT PRIMARY KEY,
 NOMBRE          TEXT NOT NULL,
 APELLIDOS       TEXT NOT NULL,
-DIRECCION		TEXT
+DIRECCION       TEXT
+
 );
 
 CREATE TABLE prestamos
 (
-FECHA           TEXT DEFAULT CURRENT_TIMESTAMP,
-DNI             TEXT,
+FECHA           TEXT DEFAULT CURRENT_TIMEDATE,
+DNI             TEXT ,
 CLAVE_EJEMPLAR  TEXT,
 
 PRIMARY KEY (DNI, CLAVE_EJEMPLAR, FECHA),
@@ -46,3 +51,7 @@ FOREIGN KEY (DNI)REFERENCES usuarios(DNI),
 FOREIGN KEY (CLAVE_EJEMPLAR) REFERENCES ejemplares(ID)
 
 );
+
+.read Libros.sql
+.read Usuarios.sql
+.read ejemplares.sql

@@ -16,10 +16,10 @@ ISBN 			TEXT PRIMARY KEY,
 TITULO			TEXT NOT NULL ,
 AUTOR			TEXT NOT NULL,
 EDITORIAL 		TEXT NOT NULL,
-EDICION			INTEGER CHECK (EDICION >= 1700 and EDICION <= 2017)
+EDICION			INTEGER CHECK (EDICION >= 1455 and EDICION <= strftime('%Y','now'))
 );
 
-/* cast(strftime('%d-%m-%Y',(SUBSTR(datetime(CURRENT_TIMESTAMP,'localtime'),7,4)))  INTEGER) */
+/* cast(strftime('%d-%m-%Y',(SUBSTR(datetime(CURRENT_TIMESTAMP,'localtime'),7,4))) as INTEGER) */
 
 
 CREATE TABLE ejemplares

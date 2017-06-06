@@ -19,6 +19,8 @@ EDITORIAL 		TEXT NOT NULL,
 EDICION			INTEGER CHECK (EDICION >= 1700 and EDICION <= 2017)
 );
 
+/* cast(strftime('%d-%m-%Y',(SUBSTR(datetime(CURRENT_TIMESTAMP,'localtime'),7,4)))  INTEGER) */
+
 
 CREATE TABLE ejemplares
 (

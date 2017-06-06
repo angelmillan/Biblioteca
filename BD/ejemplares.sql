@@ -1,5 +1,4 @@
 
-insert into ejemplares (ISBN_ejemplar, NUMERO_ejemplar) VALUES (1,'0',1);
 insert into ejemplares (ISBN_ejemplar, NUMERO_ejemplar) VALUES ('650797490-0', (SELECT COUNT(ISBN_ejemplar) +1 FROM EJEMPLARES WHERE ISBN_Ejemplar = '650797490-0'));
 insert into ejemplares (ISBN_ejemplar, NUMERO_ejemplar) VALUES ('650797490-0', (SELECT COUNT(ISBN_ejemplar) +1 FROM EJEMPLARES WHERE ISBN_Ejemplar = '650797490-0'));
 insert into ejemplares (ISBN_ejemplar, NUMERO_ejemplar) VALUES ('650797490-0', (SELECT COUNT(ISBN_ejemplar) +1 FROM EJEMPLARES WHERE ISBN_Ejemplar = '650797490-0'));
